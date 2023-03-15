@@ -41,7 +41,8 @@ function a11yProps(index) {
   };
 }
 
-export default function VerticalTabs() {
+export default function VerticalTabs(props) {
+  const { overviewData } = props;
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -70,40 +71,25 @@ export default function VerticalTabs() {
           backgroundColor: "rgb(250, 250, 250)",
         }}
       >
-        <Tab
-          label="목표"
-          {...a11yProps(0)}
-          icon={<FlagCircleOutlined />}
-          iconPosition="start"
-          sx={{
-            paddingLeft: 7,
-            paddingRight: 7,
-          }}
-        />
-        <Tab
-          label="연구활동"
-          {...a11yProps(1)}
-          icon={<PlaylistAddCheckCircle />}
-          iconPosition="start"
-          sx={{ paddingLeft: 7, paddingRight: 7 }}
-        />
-        <Tab
-          label="실험"
-          icon={<ScienceRounded />}
-          iconPosition="start"
-          {...a11yProps(2)}
-          sx={{ paddingLeft: 7, paddingRight: 7 }}
-        />
+        {overviewData.map((overview) => (
+          <Tab
+            label={overview["title"]}
+            {...a11yProps(0)}
+            icon={<FlagCircleOutlined />}
+            iconPosition="start"
+            sx={{
+              textAlign: "left",
+              paddingLeft: 7,
+              paddingRight: 7,
+            }}
+          />
+        ))}
       </Tabs>
-      <TabPanel value={value} index={0}>
-        목표
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        연구활동
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        실험
-      </TabPanel>
+      {overviewData.map((overview, idx) => (
+        <TabPanel value={value} index={idx}>
+          {overview["content"]}
+        </TabPanel>
+      ))}
     </Box>
   );
 }
