@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Detail from "./pages/Detail";
+import Home from "src/pages/Home";
+import About from "src/pages/About";
+import Contact from "src/pages/Contact";
+import Overview from "src/pages/detail/Overview";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:projectIdx/overview" element={<Overview />} />
       </Routes>
     </BrowserRouter>
   );

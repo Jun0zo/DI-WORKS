@@ -1,46 +1,41 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import axios from "axios";
-
-// Define the todo list atom
-const todoListState = atom({
-  key: "todoListState",
-  default: [],
-});
+import { projectInfoAtom } from "src/atom/projectInfoAtom";
 
 // Hook to fetch the todo list from the server
 export const useFetchTodos = () => {
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const [projectInfo, setProjectInfo] = useRecoilState(projectInfoAtom);
 
   const fetchTodos = useCallback(async () => {
     try {
       const response = await axios.get("/api/todos");
-      setTodoList(response.data);
+      setProjectInfo(response.data);
     } catch (error) {
       console.error(error);
     }
-  }, [setTodoList]);
+  }, [setProjectInfo]);
   useEffect(() => {
     fetchTodos();
   }, [fetchTodos]);
 
-  return todoList;
+  return projectInfo;
 };
 
 // Hook to create a new todo
 export const useCreateTodo = () => {
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const [projectInfo, setProjectInfo] = useRecoilState(projectInfoAtom);
 
   const createTodo = useCallback(
     async (text) => {
       try {
         const response = await axios.post("/api/todos", { text });
-        setTodoList([...todoList, response.data]);
+        setProjectInfo([...projectInfo, response.data]);
       } catch (error) {
         console.error(error);
       }
     },
-    [todoList, setTodoList]
+    [projectInfo, setProjectInfo]
   );
 
   return createTodo;
@@ -48,21 +43,21 @@ export const useCreateTodo = () => {
 
 // Hook to update a todo
 export const useUpdateTodo = () => {
-  const [todoList, setTodoList] = useRecoilState(todoListState);
+  const [projectInfo, setProjectInfo] = useRecoilState(projectInfoAtom);
 
   const updateTodo = useCallback(
     async (id, updates) => {
       try {
         const response = await axios.patch(`/api/todos/${id}`, updates);
-        const updatedTodoList = todoList.map((todo) =>
+        const updatedprojectInfo = projectInfo.map((todo) =>
           todo.id === id ? response.data : todo
         );
-        setTodoList(updatedTodoList);
+        setProjectInfo(updatedprojectInfo);
       } catch (error) {
         console.error(error);
       }
     },
-    [todoList, setTodoList]
+    [projectInfo, setProjectInfo]
   );
 
   return updateTodo;
