@@ -16,9 +16,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Link, useLocation } from "react-router-dom";
 
 const pages = [
-  { label: "Home", path: "/" },
-  { label: "Pricing", path: "/pricing" },
-  { label: "Blog", path: "/blog" },
+  { label: "메인", path: "/" },
+  { label: "작업", path: "/work" },
+  { label: "문의", path: "/help" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -139,13 +139,13 @@ function Navbar() {
                 color={location.pathname === page.path ? "primary" : "inherit"}
                 sx={{
                   ml: 3,
-                  color: "red",
+                  color: "#5d6970",
                   textTransform: "none",
                   fontWeight: 600,
                   fontSize: "1.1rem",
                   "&:hover": {
                     backgroundColor: "transparent",
-                    color: "blue",
+                    color: "#1976d2",
                   },
                 }}
               >

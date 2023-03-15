@@ -4,9 +4,9 @@ import { Box } from "@mui/material";
 
 import Layout from "src/components/layout/Layout";
 
-import ProjectTitle from "src/components/detail/ProjectTitle";
-import VerticalTabs from "src/components/detail/overview/VerticalTabs";
-import Navbar from "src/components/detail/Navbar";
+import ProjectTitle from "src/components/work/ProjectTitle";
+import VerticalTabs from "src/components/work/overview/VerticalTabs";
+import Navbar from "src/components/work/Navbar";
 
 import { useTheme } from "@mui/material/styles";
 

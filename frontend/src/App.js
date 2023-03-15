@@ -5,7 +5,7 @@ import "./App.css";
 import Home from "src/pages/Home";
 import About from "src/pages/About";
 import Contact from "src/pages/Contact";
-import Overview from "src/pages/detail/Overview";
+import Overview from "src/pages/work/Overview";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/detail/:projectIdx/overview" element={<Overview />} />
+        <Route path="/work/:projectIdx/overview" element={<Overview />} />
       </Routes>
     </BrowserRouter>
   );
