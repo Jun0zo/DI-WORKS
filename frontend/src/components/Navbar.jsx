@@ -13,12 +13,19 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 
-const pages = ["Products", "Pricing", "Blog"];
+import { Link, Router, useLocation } from "react-router-dom";
+
+const pages = [
+  { label: "Home", path: "/" },
+  { label: "Pricing", path: "/pricing" },
+  { label: "Blog", path: "/blog" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,7 +43,10 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "white", borderBottom: "#e4e4e4" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -51,7 +61,7 @@ function Navbar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "black",
               textDecoration: "none",
             }}
           >
@@ -65,7 +75,7 @@ function Navbar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
             >
               <MenuIcon />
             </IconButton>
@@ -88,8 +98,14 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  key={page.path}
+                  component={Link}
+                  to={page.path}
+                  selected={location.path === page.path}
+                  onClick={handleCloseNavMenu}
+                >
+                  <Typography textAlign="center">{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -116,11 +132,24 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                key={page.path}
+                component={Link}
+                to={page.path}
+                variant="text"
+                color={location.pathname === page.path ? "primary" : "inherit"}
+                sx={{
+                  ml: 3,
+                  color: "red",
+                  textTransform: "none",
+                  fontWeight: 600,
+                  fontSize: "1.1rem",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "blue",
+                  },
+                }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>

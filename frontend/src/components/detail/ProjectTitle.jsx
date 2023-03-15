@@ -2,13 +2,15 @@ import ProjectTitleImage from "src/projectTitleImage.png";
 
 const ProjectTitle = () => {
   return (
-    <div>
-      <img
-        src={ProjectTitleImage}
-        alt=""
-        style={{ width: "100%", maxWidth: "100%" }}
-      />
-    </div>
+    <img
+      src={ProjectTitleImage}
+      alt=""
+      style={{
+        width: "100%",
+        height: "200px",
+        maxWidth: "100%",
+      }}
+    />
   );
 };
 

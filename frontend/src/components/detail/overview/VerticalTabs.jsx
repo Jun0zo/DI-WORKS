@@ -1,9 +1,13 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+
+import { Box, Typography, Tab, Tabs, createTheme } from "@mui/material";
+import {
+  FlagCircleOutlined,
+  PlaylistAddCheckCircle,
+  ScienceRounded,
+} from "@mui/icons-material";
+import { ThemeProvider } from "@emotion/react";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,6 +56,7 @@ export default function VerticalTabs() {
         bgcolor: "background.paper",
         display: "flex",
         height: 300,
+        borderRadius: 5,
       }}
     >
       <Tabs
@@ -60,24 +65,45 @@ export default function VerticalTabs() {
         value={value}
         onChange={handleChange}
         aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: "divider" }}
+        sx={{
+          borderRight: 1,
+          borderColor: "divider",
+          backgroundColor: "rgb(250, 250, 250)",
+        }}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
-        <Tab label="Item Two" {...a11yProps(1)} />
-        <Tab label="Item Three" {...a11yProps(2)} />
-        <Tab label="Item Four" {...a11yProps(3)} />
+        <Tab
+          label="목표"
+          {...a11yProps(0)}
+          icon={<FlagCircleOutlined />}
+          iconPosition="start"
+          sx={{
+            paddingLeft: 7,
+            paddingRight: 7,
+          }}
+        />
+        <Tab
+          label="연구활동"
+          {...a11yProps(1)}
+          icon={<PlaylistAddCheckCircle />}
+          iconPosition="start"
+          sx={{ paddingLeft: 7, paddingRight: 7 }}
+        />
+        <Tab
+          label="실험"
+          icon={<ScienceRounded />}
+          iconPosition="start"
+          {...a11yProps(2)}
+          sx={{ paddingLeft: 7, paddingRight: 7 }}
+        />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        목표
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        연구활동
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
+        실험
       </TabPanel>
     </Box>
   );
