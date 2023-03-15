@@ -6,7 +6,6 @@ import Layout from "src/components/layout/Layout";
 
 import ProjectTitle from "src/components/detail/ProjectTitle";
 import VerticalTabs from "src/components/detail/overview/VerticalTabs";
-import Body from "src/components/detail/overview/Body";
 import Navbar from "src/components/detail/Navbar";
 
 import { useTheme } from "@mui/material/styles";
@@ -36,7 +35,7 @@ const Detail = () => {
         <div
           style={{ borderBottom: "1px solid #e4e4e4", marginBottom: "30px" }}
         >
-          <ProjectTitle />
+          <ProjectTitle projectIdx={projectIdx} />
           <Navbar />
         </div>
 

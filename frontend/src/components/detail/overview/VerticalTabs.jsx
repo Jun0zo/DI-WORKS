@@ -1,13 +1,12 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 
-import { Box, Typography, Tab, Tabs, createTheme } from "@mui/material";
+import { Box, Typography, Tab, Tabs } from "@mui/material";
 import {
   FlagCircleOutlined,
   PlaylistAddCheckCircle,
   ScienceRounded,
 } from "@mui/icons-material";
-import { ThemeProvider } from "@emotion/react";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
