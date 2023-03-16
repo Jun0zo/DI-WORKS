@@ -3,6 +3,16 @@
   padding: 0;
 }
 
+a {
+  font-weight: bold;
+  font-size: 2rem;
+  display: block;
+  margin: 20px;
+}
+a {
+  all: unset;
+}
+
 h1,
 h2,
 h3,

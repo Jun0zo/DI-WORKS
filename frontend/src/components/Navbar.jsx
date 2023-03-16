@@ -1,16 +1,20 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  MenuIcon,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from "@mui/icons-material";
+
 import AdbIcon from "@mui/icons-material/Adb";
 
 import { Link, useLocation } from "react-router-dom";
@@ -25,7 +29,14 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const [curUrl, setCurUrl] = React.useState(null);
   const location = useLocation();
+
+  React.useEffect(() => {
+    let url = "/" + location.pathname.split("/")[1];
+    setCurUrl(url);
+  }, [location.pathname]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -136,13 +147,13 @@ function Navbar() {
                 component={Link}
                 to={page.path}
                 variant="text"
-                color={location.pathname === page.path ? "primary" : "inherit"}
                 sx={{
                   ml: 3,
-                  color: "#5d6970",
                   textTransform: "none",
                   fontWeight: 600,
                   fontSize: "1.1rem",
+                  fontWeight: curUrl === page.path ? 700 : 600,
+                  color: curUrl === page.path ? "#3c7cde" : "#5d6970",
                   "&:hover": {
                     backgroundColor: "transparent",
                     color: "#1976d2",
