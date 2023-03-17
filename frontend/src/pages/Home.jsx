@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box } from "@mui/icons-material";
+import { Box } from "@mui/material";
 
 import Layout from "../components/layout/Layout";
 

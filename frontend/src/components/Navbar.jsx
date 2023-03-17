@@ -7,15 +7,15 @@ import {
   IconButton,
   Typography,
   Menu,
-  MenuIcon,
   Container,
   Avatar,
   Button,
   Tooltip,
   MenuItem,
-} from "@mui/icons-material";
+} from "@mui/material";
 
 import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
 
 import { Link, useLocation } from "react-router-dom";
 
