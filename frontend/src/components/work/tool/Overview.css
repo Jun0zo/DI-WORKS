@@ -1,0 +1,20 @@
+.overview-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 0px;
+}
+
+.overview-item span {
+  margin-left: 8px;
+}
+
+.key {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+.value {
+  display: inline-block;
+  width: calc(100% - 100px);
+}

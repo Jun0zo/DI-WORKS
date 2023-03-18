@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography, Rating, Button } from "@mui/material";
 
 import Layout from "src/components/layout/Layout";
 
 import { useTheme } from "@mui/material/styles";
+
+import Evaluation from "src/components/work/tool/Evaluation";
+
+import Card from "src/components/work/tool/Card";
+import Overview from "src/components/work/tool/Overview";
+import Header from "src/components/work/tool/Header";
 
 const Tool = () => {
   const { projectIdx, dataIdx } = useParams();
@@ -40,14 +46,43 @@ const Tool = () => {
     <Layout>
       <Box
         sx={{
-          display: "grid",
           maxWidth: 1100,
           margin: "0 auto",
         }}
       >
-        <Grid container>
-          <Grid item xs={8} sx={{ backgroundColor: "red" }}></Grid>
-          <Grid item xs={8}></Grid>
+        <Grid container sx={{ position: "relative" }}>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              height: "200px",
+              padding: "15px 10px",
+            }}
+          >
+            <Header />
+          </Grid>
+          <Grid item xs={12} md={8} sx={{ height: "70vh" }}>
+            <div>red</div>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                padding: "10px",
+              }}
+            >
+              <Card title="에세이 정보">
+                <Overview />
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} sx={{ padding: "10px" }}>
+              <Card title="레이블링">
+                <Evaluation />
+              </Card>
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
     </Layout>
