@@ -27,7 +27,14 @@ const _replaceSymbols = (sentence, isListed, isSymboled) => {
         if (match) {
           const match = word.match(pattern);
           const number = match[1];
-          return <Chip key={idx} icon={icon} label={symbol + " " + number} />;
+          return (
+            <Chip
+              key={idx}
+              icon={icon}
+              size="small"
+              label={symbol + " " + number}
+            />
+          );
         }
       }
       return word;

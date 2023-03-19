@@ -182,6 +182,8 @@ const Tool = () => {
         sx={{
           maxWidth: 1100,
           margin: "0 auto",
+          paddingBottom: "20px",
+          height: "100%",
         }}
       >
         <Grid container sx={{ position: "relative" }}>
@@ -193,7 +195,7 @@ const Tool = () => {
               padding: "15px 10px",
             }}
           >
-            <Header />
+            <Header overviewData={projectTitleOverviewData} />
           </Grid>
           <Grid item xs={12} md={8} sx={{ height: "70vh", padding: "10px" }}>
             <Card title="에세이 본문">
