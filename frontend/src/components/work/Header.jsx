@@ -10,7 +10,8 @@ const Header = () => {
       sx={{
         height: "350px",
         width: "100%",
-        padding: "0 30px",
+        padding: "0 40px",
+        backgroundColor: "#ececec",
       }}
     >
       <Grid
@@ -25,7 +26,9 @@ const Header = () => {
       >
         <Box>
           <h1 style={{ marginBottom: 4 }}>작업 목록</h1>
-          <h3>인공지능 학습을 위한 학습데이터를 등록하고 공유해보세요</h3>
+          <h3 style={{ fontWeight: 550 }}>
+            인공지능 학습을 위한 학습데이터를 등록하고 공유해보세요
+          </h3>
         </Box>
 
         <Box
@@ -37,13 +40,13 @@ const Header = () => {
         >
           <Button
             variant="contained"
-            color={"primary"}
+            color="info"
             startIcon={<AddCircleIcon />}
             sx={{ borderRadius: "15px" }}
           >
             데이터 추가
           </Button>
-          <Button variant="outlined" sx={{ borderRadius: "15px" }}>
+          <Button variant="outlined" color="info" sx={{ borderRadius: "15px" }}>
             최근 작업
           </Button>
         </Box>
@@ -53,7 +56,7 @@ const Header = () => {
         xs={6}
         sx={{ display: "flex", alignItems: "center", justifyContent: "right" }}
       >
-        <img src={headerImage} alt="" style={{ width: "400px" }} />
+        <img src={headerImage} alt="" style={{ width: "500px" }} />
       </Grid>
     </Grid>
   );

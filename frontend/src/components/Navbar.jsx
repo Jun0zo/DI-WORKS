@@ -17,6 +17,8 @@ import {
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import { Blue } from "@mui/material/colors";
+
 import { Link, useLocation } from "react-router-dom";
 
 const pages = [
@@ -61,7 +63,7 @@ function Navbar() {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -77,7 +79,14 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            DI-WORKING
+            <a
+              href="/"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.cursor = "pointer";
+              }}
+            >
+              DI-WORKING
+            </a>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -155,10 +164,6 @@ function Navbar() {
                   fontSize: "1.1rem",
                   fontWeight: curUrl === page.path ? 700 : 600,
                   color: curUrl === page.path ? "#3c7cde" : "#5d6970",
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    color: "#1976d2",
-                  },
                 }}
               >
                 {page.label}
@@ -166,10 +171,17 @@ function Navbar() {
             ))}
           </Box>
 
+          {/* <Box sx={{ flexGrow: 0 }}>
+            <Typography sx={{ color: "gray", padding: "0px 15px" }}>
+              평가자 1님
+            </Typography>
+          </Box> */}
           <Box sx={{ flexGrow: 0 }}>
+            {/* <Typography>평가자 1님</Typography> */}
+
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: "#0088d1" }}>H</Avatar>
               </IconButton>
             </Tooltip>
             <Menu

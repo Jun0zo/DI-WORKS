@@ -128,11 +128,11 @@ const Contents = ({ workInfoList }) => {
   return (
     <Grid container sx={{ padding: "30px" }}>
       <Grid item xs={12} lg={9} sx={{ padding: "0px 15px" }}>
-        <h2 style={{ marginBottom: "14px" }}>작업 목록</h2>
+        <h3 style={{ marginBottom: "14px" }}>진행중인 작업 목록</h3>
         <WorkList workInfoList={workInfoList} />
       </Grid>
       <Grid item xs={12} lg={3} sx={{ padding: "0px 15px" }}>
-        <h2 style={{ marginBottom: "14px" }}>리더보드</h2>
+        <h3 style={{ marginBottom: "14px" }}>리더보드</h3>
         <LeaderBoard />
       </Grid>
     </Grid>

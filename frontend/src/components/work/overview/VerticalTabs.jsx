@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import { Box, Typography, Tab, Tabs } from "@mui/material";
+import { Box, Typography, Tab, Tabs, Icon } from "@mui/material";
 import {
   FlagCircleOutlined,
   PlaylistAddCheckCircle,
@@ -55,6 +55,12 @@ const MarkdownComponent = ({ content }) => {
   );
 };
 
+const titleAndIconMaps = {
+  목표: <FlagCircleOutlined />,
+  연구활동: <PlaylistAddCheckCircle />,
+  실험: <ScienceRounded />,
+};
+
 export default function VerticalTabs(props) {
   const { overviewData } = props;
   const [value, setValue] = React.useState(0);
@@ -91,7 +97,13 @@ export default function VerticalTabs(props) {
             key={idx}
             label={overview["title"]}
             {...a11yProps(0)}
-            icon={<FlagCircleOutlined />}
+            icon={
+              titleAndIconMaps.hasOwnProperty(overview["title"]) ? (
+                <Icon>{titleAndIconMaps[overview["title"]]}</Icon>
+              ) : (
+                <FlagCircleOutlined />
+              )
+            }
             iconPosition="top"
             sx={{
               width: 200,
@@ -107,7 +119,10 @@ export default function VerticalTabs(props) {
           value={value}
           index={idx}
           key={idx}
-          sx={{ minWidth: "fit-content", maxWidth: "calc(100%-200px)" }}
+          sx={{
+            minWidth: "fit-content",
+            maxWidth: "calc(100%-200px)",
+          }}
         >
           {overview.content}
         </TabPanel>

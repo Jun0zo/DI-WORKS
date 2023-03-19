@@ -1,5 +1,6 @@
 import ProjectTitleImage from "src/projectTitleImage.png";
 import { AccessTime, PeopleAlt, DateRange } from "@mui/icons-material";
+import { Box, Button } from "@mui/material";
 
 const ProjectTitle = (props) => {
   const { projectIdx, overviewData } = props;
@@ -11,19 +12,19 @@ const ProjectTitle = (props) => {
         alt=""
         style={{
           width: "100%",
-          height: "200px",
+          height: "210px",
           maxWidth: "100%",
           display: "block",
         }}
       />
-      <div
+      <Box
         style={{
           backgroundColor: "rgba(0,0,0,0.3)",
           position: "absolute",
           top: 0,
           left: 0,
           width: "calc(100% - 28px * 2)",
-          height: "calc(200px - 24px * 2)",
+          height: "calc(210px - 24px * 2)",
           padding: "24px 28px",
           color: "white",
         }}
@@ -62,7 +63,19 @@ const ProjectTitle = (props) => {
             {overviewData["lastDays"]}일
           </li>
         </ul>
-      </div>
+        <Box>
+          <a href={`/work/${projectIdx}/tool`}>
+            <Button
+              variant="contained"
+              disableElevation
+              sx={{ marginTop: "8px" }}
+              color="info"
+            >
+              빠른 시작
+            </Button>
+          </a>
+        </Box>
+      </Box>
     </div>
   );
 };
