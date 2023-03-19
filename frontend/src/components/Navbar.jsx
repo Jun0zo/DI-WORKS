@@ -22,6 +22,7 @@ import { Link, useLocation } from "react-router-dom";
 const pages = [
   { label: "메인", path: "/" },
   { label: "작업", path: "/work" },
+  { label: "토론", path: "#" },
   { label: "문의", path: "/help" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -76,7 +77,7 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            DI-WORKING
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

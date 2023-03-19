@@ -8,7 +8,7 @@ import ProjectTitle from "src/components/work/ProjectTitle";
 import VerticalTabs from "src/components/work/overview/VerticalTabs";
 import Navbar from "src/components/work/Navbar";
 
-import { useTheme } from "@mui/material/styles";
+import P1 from "./P1";
 
 const Detail = () => {
   const { projectIdx } = useParams();
@@ -22,10 +22,8 @@ const Detail = () => {
     lastDats: -1,
   });
   let [error, setError] = useState(null);
-  const theme = useTheme();
 
   useEffect(() => {
-    console.log("theme check", theme.breakpoints.down("lg"));
     try {
       // const data = getData(projectIdx);
       const titleOverviewData = {
@@ -37,7 +35,22 @@ const Detail = () => {
       };
 
       const overviewData = [
-        { title: "목표", content: "우리의 목표는 ~" },
+        {
+          title: "목표",
+          content: `
+          # 목표
+        
+          **1차 연도**
+          
+          1. 학습데이터 생성 및 검증을 위한 프로세스 진행 및 문제점 보완
+          2. 평가자 교육 -> 총 1,967편의 한글 에세이와 총 1,800편의 영문 에세이 학습데이터 구축
+          
+          **2차 연도**
+          
+          1. 1차년도의 구축 경험을 바탕으로 Mechanical Turk 플랫폼과 클라우드 워커를 활용하여 추가적인 대용량 학습데이터 구축 예정(ASAP, ICLE, KLUE, AI-HUB 등에서 총 3만 건의 학습데이터)
+          
+        `,
+        },
         { title: "연구활동", content: "우리의 연구활동은 ~" },
         { title: "실험", content: "우리의 실험은 ~" },
       ];
@@ -48,6 +61,7 @@ const Detail = () => {
       setError(error.message);
     }
   }, []);
+
   return (
     <Layout>
       <Box
@@ -66,7 +80,13 @@ const Detail = () => {
           <Navbar projectIdx={projectIdx} />
         </div>
 
-        <div style={{ border: "1px solid #e4e4e4", borderRadius: 10 }}>
+        <div
+          style={{
+            border: "1px solid #e4e4e4",
+            borderRadius: 10,
+            width: "100%",
+          }}
+        >
           <VerticalTabs overviewData={projectOverviewData} />
         </div>
       </Box>

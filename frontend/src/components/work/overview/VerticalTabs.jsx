@@ -1,12 +1,17 @@
-import * as React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-
+import styled from "@emotion/styled";
 import { Box, Typography, Tab, Tabs } from "@mui/material";
 import {
   FlagCircleOutlined,
   PlaylistAddCheckCircle,
   ScienceRounded,
 } from "@mui/icons-material";
+
+import ReactMarkdown from "react-markdown";
+const MarkDownStyle = styled.div`
+  font-size: 1rem;
+`;
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -17,6 +22,7 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      style={{ width: "70%", margin: "0 auto" }}
       {...other}
     >
       {value === index && (
@@ -41,9 +47,19 @@ function a11yProps(index) {
   };
 }
 
+const MarkdownComponent = ({ content }) => {
+  return (
+    <MarkDownStyle>
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </MarkDownStyle>
+  );
+};
+
 export default function VerticalTabs(props) {
   const { overviewData } = props;
   const [value, setValue] = React.useState(0);
+
+  console.log(overviewData);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -52,7 +68,6 @@ export default function VerticalTabs(props) {
   return (
     <Box
       sx={{
-        flexGrow: 1,
         bgcolor: "background.paper",
         display: "flex",
         height: 300,
@@ -71,14 +86,16 @@ export default function VerticalTabs(props) {
           backgroundColor: "rgb(250, 250, 250)",
         }}
       >
-        {overviewData.map((overview) => (
+        {overviewData.map((overview, idx) => (
           <Tab
+            key={idx}
             label={overview["title"]}
             {...a11yProps(0)}
             icon={<FlagCircleOutlined />}
-            iconPosition="start"
+            iconPosition="top"
             sx={{
-              textAlign: "left",
+              width: 200,
+              justifyContent: "left",
               paddingLeft: 7,
               paddingRight: 7,
             }}
@@ -86,8 +103,13 @@ export default function VerticalTabs(props) {
         ))}
       </Tabs>
       {overviewData.map((overview, idx) => (
-        <TabPanel value={value} index={idx}>
-          {overview["content"]}
+        <TabPanel
+          value={value}
+          index={idx}
+          key={idx}
+          sx={{ minWidth: "fit-content", maxWidth: "calc(100%-200px)" }}
+        >
+          {overview.content}
         </TabPanel>
       ))}
     </Box>

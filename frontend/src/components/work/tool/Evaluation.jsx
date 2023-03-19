@@ -36,11 +36,6 @@ const Evaluation = (props) => {
     setCurrentSection(currentSection - 1);
   };
 
-  const handleReset = () => {
-    setRating([]);
-    setCurrentSection(0);
-  };
-
   const sectionContents = [
     <Box>
       <Typography
