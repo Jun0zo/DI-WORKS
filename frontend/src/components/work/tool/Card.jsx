@@ -18,14 +18,15 @@ const Card = (props) => {
             position: "relative",
             top: 0,
             textAlign: "left",
-            padding: "10px 20px;",
+            padding: "15px 20px;",
             borderTopLeftRadius: "10px",
             borderTopRightRadius: "10px",
+            fontWeight: "bold",
           }}
         >
           {title}
         </Box>
-        <Box sx={{ padding: "20px 10px" }}>{children}</Box>
+        <Box sx={{ padding: "20px 20px", color: "#646464" }}>{children}</Box>
       </Box>
     </div>
   );

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 4px 0px;
+  font-size: 14px;
 }
 
 .overview-item span {
@@ -11,7 +12,7 @@
 .key {
   display: inline-block;
   width: 100px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .value {
