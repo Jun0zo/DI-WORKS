@@ -11,8 +11,7 @@ async def root():
 
 # Connect to MongoDB
 client = MongoClient("mongodb://dilab:dilab1@220.68.27.149:27017/")
-db = client["EssayDB"]
-collection = db["Essay"]
+db = client["EssayDB"]joon
 
 class Essay(BaseModel):
     id: str
