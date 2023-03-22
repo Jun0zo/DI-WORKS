@@ -25,7 +25,7 @@ const pages = [
   { label: "메인", path: "/" },
   { label: "작업", path: "/work" },
   { label: "토론", path: "#" },
-  { label: "문의", path: "/help" },
+  { label: "문의", path: "/contact" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -85,7 +85,8 @@ function Navbar() {
                 e.currentTarget.style.cursor = "pointer";
               }}
             >
-              DI-WORKING
+              <span style={{ fontWeight: "900", color: "#0288d1" }}>DI</span>
+              <span style={{ fontWeight: "900" }}>-WORKING</span>
             </a>
           </Typography>
 

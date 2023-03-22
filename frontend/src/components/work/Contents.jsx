@@ -87,7 +87,15 @@ const WorkList = ({ workInfoList }) => {
   return (
     <Grid container spacing={2}>
       {workInfoList.map((workInfo, idx) => (
-        <Grid item xs={12} sm={6} md={4} xl={3}>
+        <Grid
+          className="card-wrapper"
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          xl={3}
+          sx={{ paddingLeft: "0 !important" }}
+        >
           <WorkCard key={idx} workInfo={workInfo} />
         </Grid>
       ))}
@@ -98,7 +106,10 @@ const WorkList = ({ workInfoList }) => {
 const LeaderBoard = () => {
   const leaderRankingList = ["평가자5", "평가자2", "평가자1"];
   return (
-    <Grid container sx={{ flexDirection: "column", gap: "10px" }}>
+    <Grid
+      container
+      sx={{ flexDirection: "column", gap: "10px", padding: "10px 0px" }}
+    >
       {leaderRankingList.map((leader, idx) => (
         <Grid item>
           <Box
@@ -128,11 +139,22 @@ const Contents = ({ workInfoList }) => {
   return (
     <Grid container sx={{ padding: "30px" }}>
       <Grid item xs={12} lg={9} sx={{ padding: "0px 15px" }}>
-        <h3 style={{ marginBottom: "14px" }}>진행중인 작업 목록</h3>
+        <Box style={{ marginBottom: "14px" }}>
+          <h3 style={{ marginBottom: "6px" }}>진행중인 작업 목록</h3>
+          <span style={{ color: "#4d4d4d" }}>
+            현재 평가가 진행중인 작업입니다
+          </span>
+        </Box>
+
         <WorkList workInfoList={workInfoList} />
       </Grid>
       <Grid item xs={12} lg={3} sx={{ padding: "0px 15px" }}>
-        <h3 style={{ marginBottom: "14px" }}>리더보드</h3>
+        <Box style={{ marginBottom: "14px" }}>
+          <h3 style={{ marginBottom: "6px" }}>리더보드</h3>
+          <span style={{ color: "#4d4d4d" }}>
+            레이블링에 기여한 평가자들 입니다
+          </span>
+        </Box>
         <LeaderBoard />
       </Grid>
     </Grid>

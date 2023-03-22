@@ -26,7 +26,7 @@ const Header = () => {
       >
         <Box>
           <h1 style={{ marginBottom: 4 }}>작업 목록</h1>
-          <h3 style={{ fontWeight: 550 }}>
+          <h3 style={{ fontWeight: 500, color: "#4d4d4d" }}>
             인공지능 학습을 위한 학습데이터를 등록하고 공유해보세요
           </h3>
         </Box>
