@@ -8,6 +8,7 @@ import Contact from "src/pages/Contact";
 import Overview from "src/pages/work/Overview";
 import Tool from "src/pages/work/Tool";
 import Work from "src/pages/Work";
+import DataList from "./pages/work/DataList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/work" element={<Work />} />
         <Route path="/work/:projectIdx/overview" element={<Overview />} />
         <Route path="/work/:projectIdx/tool" element={<Tool />} />
+        <Route path="/work/:projectIdx/datalist" element={<DataList />} />
       </Routes>
     </BrowserRouter>
   );
