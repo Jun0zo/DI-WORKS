@@ -65,8 +65,6 @@ export default function VerticalTabs(props) {
   const { overviewData } = props;
   const [value, setValue] = React.useState(0);
 
-  console.log(overviewData);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

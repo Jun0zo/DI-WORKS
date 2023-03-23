@@ -1,26 +1,58 @@
-import { Link } from "react-router-dom";
+import * as React from "react";
+
+import { Link, useLocation } from "react-router-dom";
 import { Typography, Button } from "@mui/material";
 
+const pages = [
+  { label: "개요", addPath: "overview" },
+  { label: "데이터 개요", addPath: "datainfo" },
+  { label: "레이블링", addPath: "datalist" },
+];
+
 const Navbar = () => {
+  const [curRootUrl, setCurRootUrl] = React.useState(null);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    let curRootUrl = location.pathname.split("/");
+    curRootUrl.pop();
+    curRootUrl = curRootUrl.join("/");
+
+    setCurRootUrl(curRootUrl);
+  }, [location.pathname]);
+
   return (
     <div style={{ marginTop: -3 }}>
-      <Button
-        component={Link}
-        to="/home"
-        sx={{ borderBottom: "2px solid #3c7cde", borderRadius: 0, height: 50 }}
-      >
-        <Typography sx={{ fontSize: 14, fontWeight: 900 }}>개요</Typography>
-      </Button>
-      <Button component={Link} to="/about">
-        <Typography sx={{ fontSize: 14, color: "rgb(66, 66, 66)" }}>
-          데이터
-        </Typography>
-      </Button>
-      <Button component={Link} to="/contact">
-        <Typography sx={{ fontSize: 14, color: "rgb(66, 66, 66)" }}>
-          규칙
-        </Typography>
-      </Button>
+      {pages.map(({ label, addPath }) => {
+        return (
+          <Button
+            component={Link}
+            to={curRootUrl + "/" + addPath}
+            sx={{
+              borderBottom:
+                location.pathname === `${curRootUrl}/${addPath}`
+                  ? "2px solid #3c7cde"
+                  : "none",
+              borderRadius: 0,
+              height: 50,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: 14,
+                fontWeight:
+                  location.pathname === `${curRootUrl}/${addPath}` ? 900 : 500,
+                color:
+                  location.pathname === `${curRootUrl}/${addPath}`
+                    ? "#3c7cde"
+                    : "black",
+              }}
+            >
+              {label}
+            </Typography>
+          </Button>
+        );
+      })}
     </div>
   );
 };

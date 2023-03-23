@@ -12,7 +12,6 @@ const rankingImagesURL = [Rank1, Rank2, Rank3, Rank4, Rank5];
 
 const WorkCard = ({ workInfo }) => {
   const { workId, imageURL, title, hashTagList, progressInfo } = workInfo;
-  console.log(workInfo);
   return (
     <Grid
       container

@@ -54,7 +54,6 @@ function DataList() {
       sortable: false,
       disableColumnMenu: true,
       renderCell: ({ value }) => {
-        console.log();
         return (
           <Box
             sx={{
@@ -119,7 +118,6 @@ function DataList() {
   }, []);
 
   const handlePageChange = (params) => {
-    console.log(params);
     setPage(params.page);
   };
 

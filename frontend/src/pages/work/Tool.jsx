@@ -160,7 +160,6 @@ const Tool = () => {
   const theme = useTheme();
 
   useEffect(() => {
-    console.log("theme check", theme.breakpoints.down("lg"));
     try {
       // const data = getData(projectIdx);
       const titleOverviewData = {
