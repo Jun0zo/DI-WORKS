@@ -19,7 +19,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/work" element={<Work />} />
         <Route path="/work/:projectIdx/overview" element={<Overview />} />
-        <Route path="/work/:projectIdx/tool" element={<Tool />} />
+        <Route path="/work/:projectIdx/tool/:dataIdx" element={<Tool />} />
         <Route path="/work/:projectIdx/datalist" element={<DataList />} />
       </Routes>
     </BrowserRouter>

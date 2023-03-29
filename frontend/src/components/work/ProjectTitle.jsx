@@ -64,7 +64,7 @@ const ProjectTitle = (props) => {
           </li>
         </ul>
         <Box>
-          <a href={`/work/${projectIdx}/tool`}>
+          <a href={`/work/${projectIdx}/tool/3`}>
             <Button
               variant="contained"
               disableElevation

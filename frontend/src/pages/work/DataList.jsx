@@ -63,7 +63,7 @@ function DataList() {
           >
             <Rating
               name="read-only"
-              value={value["Total Score"]}
+              value={Number(value["Total Score"])}
               readOnly
               sx={{ fontSize: "14px" }}
             />
@@ -83,7 +83,6 @@ function DataList() {
             alignItems: "center",
           }}
         >
-          123
         </Box>
       ),
     },
@@ -153,6 +152,7 @@ function DataList() {
               rows={rows}
               pageSize={100}
               rowCount={totalRows}
+              options={{columnWidth:200}}
               onPaginationModelChange={handlePageChange}
               paginationMode="server"
               loading={loading}
